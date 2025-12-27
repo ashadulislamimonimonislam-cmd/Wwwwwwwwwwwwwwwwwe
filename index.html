@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUJJU BAI FREE FIRE VIP</title>
+    <style>
+        /* ডিজে কালার এনিমেশন */
+        @keyframes bg-flow { 0% { background: #0f172a; } 50% { background: #1e1b4b; } 100% { background: #0f172a; } }
+        body { margin: 0; height: 100vh; display: flex; justify-content: center; align-items: center; font-family: 'Poppins', sans-serif; animation: bg-flow 10s infinite; color: white; overflow: hidden; background: #000; }
+        
+        .container { background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(20px); border: 2px solid #00f2ff; padding: 40px; border-radius: 40px; width: 310px; text-align: center; box-shadow: 0 0 50px rgba(0, 242, 255, 0.2); }
+        
+        /* সেকশন কন্ট্রোল */
+        #landingPage, #generatorPage, #deniedPage { display: none; }
+        
+        h1 { font-size: 20px; text-transform: uppercase; margin-bottom: 25px; letter-spacing: 2px; }
+        .btn { background: #fff; color: #000; border: none; padding: 16px; font-weight: 900; cursor: pointer; border-radius: 15px; width: 100%; margin-bottom: 12px; text-transform: uppercase; text-decoration: none; display: inline-block; box-sizing: border-box; }
+        .btn-tg { background: #0088cc; color: white; padding: 12px; border-radius: 12px; display: block; text-decoration: none; font-size: 13px; margin-bottom: 10px; }
+        #keyDisplay { border: 1px dashed #00f2ff; padding: 20px; margin-bottom: 20px; font-size: 22px; color: #00f2ff; font-weight: bold; border-radius: 15px; background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+    <div id="landingPage" class="container">
+        <h1>GUJJU BAI FREE FIRE VIP</h1>
+        <p style="font-size: 13px; color: #ccc;">ভিআইপি কী পেতে নিচের লিংকে ক্লিক করে বিজ্ঞাপন সম্পন্ন করুন।</p>
+        <a href="https://linksgo.in/3i6m" class="btn">GET VIP KEY NOW</a>
+        <p style="font-size: 10px; color: #888;">© GUJJU BAI SECURITY</p>
+    </div>
+
+    <div id="generatorPage" class="container">
+        <h1>KEY GENERATOR</h1>
+        <div id="keyDisplay">VERIFIED ACCESS</div>
+        <button id="genBtn" class="btn" onclick="generateKey()">GENERATE NEW KEY</button>
+        <button id="copyBtn" class="btn" style="display:none; background:#00ff00;" onclick="copyKey()">COPY KEY</button>
+        <a href="https://t.me/+7WucfrS0eT4zYjA1" class="btn-tg">JOIN MAIN CHANNEL</a>
+        <a href="https://t.me/Ashadul_AD" style="background:#24292e;" class="btn-tg">CONTACT ADMIN</a>
+    </div>
+
+    <div id="deniedPage" class="container">
+        <h1 style="color: #ff3366;">ACCESS DENIED</h1>
+        <p>সরাসরি ইউআরএল ব্যবহার করা নিষেধ।</p>
+        <button class="btn" onclick="showLanding()">GO TO HOME</button>
+    </div>
+
+<script>
+    // গুরুত্বপূর্ণ লজিক
+    window.onload = function() {
+        const referrer = document.referrer;
+        const landing = document.getElementById('landingPage');
+        const generator = document.getElementById('generatorPage');
+        const denied = document.getElementById('deniedPage');
+
+        // চেক: ইউজার কি শর্টলিংক (linksgo.in) থেকে ফিরে এসেছে?
+        if (referrer.includes("linksgo.in")) {
+            generator.style.display = 'block'; // শর্টলিংক হয়ে আসলে জেনারেটর দেখাবে
+        } else {
+            landing.style.display = 'block'; // সরাসরি আসলে ল্যান্ডিং পেজ দেখাবে
+        }
+    };
+
+    function showLanding() {
+        location.reload();
+    }
+
+    // আপনার দেওয়া নতুন Airtable তথ্য
+    const AIRTABLE_TOKEN = "patTX6i8cezfIJNWO.595234f9a1c9c7e8c22d17b3b2b38319b6e66c10718ac21d7caa0584bad37541"; 
+    const BASE_ID = "appUSLR3G8b0xp7iV"; 
+    const TABLE_ID = "tblf7bv3H1nRjM2i9"; 
+
+    async function generateKey() {
+        const genBtn = document.getElementById('genBtn');
+        const display = document.getElementById('keyDisplay');
+        genBtn.disabled = true;
+        genBtn.innerText = "Processing...";
+
+        const newKey = "GUJJU-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+
+        try {
+            const response = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_ID}`, {
+                method: 'POST',
+                headers: { 'Authorization': 'Bearer ' + AIRTABLE_TOKEN, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ "fields": { "Password": newKey } })
+            });
+
+            if (response.ok) {
+                display.innerText = newKey;
+                genBtn.style.display = 'none';
+                document.getElementById('copyBtn').style.display = 'block';
+            }
+        } catch (e) {
+            alert("Server Error!");
+            genBtn.disabled = false;
+        }
+    }
+
+    function copyKey() {
+        navigator.clipboard.writeText(document.getElementById('keyDisplay').innerText);
+        alert("✨ VIP Key Copied!");
+    }
+</script>
+</body>
+</html>
