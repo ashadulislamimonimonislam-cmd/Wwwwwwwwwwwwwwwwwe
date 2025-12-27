@@ -25,7 +25,7 @@
     <div id="landingPage" class="container">
         <h1>GUJJU BAI FREE FIRE VIP</h1>
         <p style="font-size: 13px; color: #ccc;">ভিআইপি কী পেতে নিচের লিংকে ক্লিক করে বিজ্ঞাপন সম্পন্ন করুন।</p>
-        <a href="https://linksgo.in/3i6m" class="btn">GET VIP KEY NOW</a>
+        <a href="https://linksgo.in/oIhZ11N" class="btn">GET VIP KEY NOW</a>
         <p style="font-size: 10px; color: #888;">© GUJJU BAI SECURITY</p>
     </div>
 
@@ -45,18 +45,17 @@
     </div>
 
 <script>
-    // গুরুত্বপূর্ণ লজিক
     window.onload = function() {
         const referrer = document.referrer;
         const landing = document.getElementById('landingPage');
         const generator = document.getElementById('generatorPage');
         const denied = document.getElementById('deniedPage');
 
-        // চেক: ইউজার কি শর্টলিংক (linksgo.in) থেকে ফিরে এসেছে?
+        // চেক: ইউজার কি শর্টলিংক থেকে ফিরে এসেছে?
         if (referrer.includes("linksgo.in")) {
-            generator.style.display = 'block'; // শর্টলিংক হয়ে আসলে জেনারেটর দেখাবে
+            generator.style.display = 'block'; 
         } else {
-            landing.style.display = 'block'; // সরাসরি আসলে ল্যান্ডিং পেজ দেখাবে
+            landing.style.display = 'block'; 
         }
     };
 
@@ -64,7 +63,6 @@
         location.reload();
     }
 
-    // আপনার দেওয়া নতুন Airtable তথ্য
     const AIRTABLE_TOKEN = "patTX6i8cezfIJNWO.595234f9a1c9c7e8c22d17b3b2b38319b6e66c10718ac21d7caa0584bad37541"; 
     const BASE_ID = "appUSLR3G8b0xp7iV"; 
     const TABLE_ID = "tblf7bv3H1nRjM2i9"; 
